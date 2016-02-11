@@ -5,5 +5,29 @@
   <%= @category.name %>
 </p>
 
+<div class="items_container">
+  <ul>
+    <% @items.each do |item| %>
+
+        <li>
+          <%= item.content %>
+        </li>
+
+    <% end %>
+  </ul>
+
+</div> <!-- end of comment container div -->
+
+<h2>Add an Item:</h2>
+<%= form_for([@category, @category.items.build]) do |f| %>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
