@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<h2>
+  Name: <%= @category.name %>
+</h2>
 
 <div class="items_container">
   <ul>
@@ -21,7 +20,7 @@
 
 </div> <!-- end of comment container div -->
 
-<h2>Add an Item:</h2>
+<h4>Add an Item:</h4>
 <%= form_for([@category, @category.items.build]) do |f| %>
   <div class="field">
     <%= f.label :content %><br />
