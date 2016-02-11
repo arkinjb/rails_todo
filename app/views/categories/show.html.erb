@@ -11,6 +11,9 @@
 
         <li>
           <%= item.content %>
+          <%= link_to 'Item Completed', [item.category, item],
+               data: { confirm: 'Delete this completed item?'} ,
+               method: :delete %>
         </li>
 
     <% end %>
@@ -30,4 +33,5 @@
 <% end %>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Delete List', @category, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', categories_path %>

@@ -6,6 +6,13 @@ class ItemsController < ApplicationController
     redirect_to category_path(@category)
   end
 
+  def destroy
+    @category = Category.find(params[:category_id])
+    @item = @category.items.find(params[:id])
+    @item.destroy
+    redirect_to category_path(@category)
+  end
+
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
